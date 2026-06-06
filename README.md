@@ -8,7 +8,7 @@ This project takes real store sales data and uses it to forecast how much a busi
 
 ## Dataset
 
-https://www.kaggle.com/competitions/store-sales-time-series-forecasting/data?select=train.csv
+(https://www.kaggle.com/competitions/store-sales-time-series-forecasting)
 
 The project uses the Store Sales — Time Series Forecasting dataset from Kaggle. 
 
