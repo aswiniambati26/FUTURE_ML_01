@@ -23,25 +23,42 @@ National holidays and events
 
 ## How It Works
 
-1. Data Preparation
-All five CSV files are loaded and merged into one clean dataset. Missing oil prices are filled forward, and holiday dates are flagged so the model knows when special events happened.
+Steps Followed
+## 1. Data Loading
 
+Loaded 5 CSV files — train, stores, transactions, oil, holidays
+Merged them all into one clean dataset
 
-3. Feature Engineering
-Raw dates are broken down into year, month, day, and day of week. On top of that, lag features are created — basically telling the model "here's what sales looked like 1 day ago, 7 days ago, and 30 days ago." Rolling averages over 7 and 30 days are also added to capture recent trends.
+## 2. Data Cleaning
 
+Filled missing oil prices using forward fill
+Filled missing transaction values with 0
+Flagged national holidays
 
-5. Model Training
-Six different forecasting approaches are trained and compared:
-ModelTypeLinear RegressionML baselineRandom ForestEnsemble MLXGBoostGradient boosting (best performer)ARIMAClassical time-seriesExponential SmoothingClassical time-seriesProphetFacebook's forecasting library
+## 3. Feature Engineering
 
+Extracted year, month, day, day of week from dates
+Created lag features — sales from 1, 7, and 30 days ago
+Added 7-day and 30-day rolling averages
 
-7. Model Selection
-XGBoost came out on top based on RMSE and R² scores. ARIMA and Exponential Smoothing struggled because the data is aggregated across 54 stores, making it too noisy for simple univariate models.
+## 4. Model Training
 
+Linear Regression
+Random Forest
+XGBoost
+ARIMA
+Exponential Smoothing
+Prophet
 
-9. 30-Day Forecast
-The best model is used to predict total daily sales for the next 30 days, with results visualised in a clean two-panel chart showing both the historical trend and the upcoming forecast.
+## 5. Model Evaluation
+
+Compared all models using MAE, RMSE, and R²
+XGBoost performed best
+
+## 6. Forecasting
+
+Used XGBoost to predict sales for the next 30 days
+Visualised results in a clear chart
 
 ## Results
 
